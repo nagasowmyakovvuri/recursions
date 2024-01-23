@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+int last_occurence(int * a,int n,int k)
+{
+    if(n==0)return -1;
+   
+    int small=last_occurence(a+1,n-1,k);
+    if(small==-1)
+    {
+        if(a[0]==k)return 0;
+        else return -1;
+    }
+    return small+1;
+    
+}
+int main() {
+    int n;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    int k;
+    cin>>k;
+    cout<<last_occurence(a,n,k);
+	return 0;
+}
